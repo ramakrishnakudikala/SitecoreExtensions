@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <!-- 
+      In the default configuration of the global file, the values for a configuration in the global file supersede the values  
+      in the project configuration. This behavior can be changed by specifying a condition on the property as follows:
+
+  		<SitecoreWebUrl Condition=" '$(SitecoreWebUrl)' == '' "></SitecoreWebUrl>
+
+      By adding the above condition, the value specified in the global configuration file will only be applied if the 
+      value specified in the project is blank.
+      
+      It should be noted that values in the project .user file will override values in the global file.
+      
+      Changes to this file will not be picked up by visual studio until the TDS project(s) or solution is reloaded.
+      
+      A TdsGlobal.config.user file may also be created in the same folder as this file. the .user file will override property
+      values specified in other files.
+    -->
+    <!-- Packaging properties -->
+    <!--
+		<PackageAuthor></PackageAuthor>
+		<PackagePublisher></PackagePublisher>
+		<PackageVersion></PackageVersion>
+		<PackageReadme></PackageReadme>
+		<SitecoreAssemblyPath></SitecoreAssemblyPath>
+		<GeneratePackage></GeneratePackage>
+		<SeperateFilesAndItems></SeperateFilesAndItems>
+		<AddDateTimeToPackageName></AddDateTimeToPackageName>
+		-->
+    <!-- Deployment Properties -->
+	
+		<SitecoreWebUrl>http://devcms81</SitecoreWebUrl>
+		<SitecoreDeployFolder>C:\MyProjects\Sites\devcms81\Website</SitecoreDeployFolder> 
+	<!--	<SitecoreWebUrl>http://cms.dev1.cable.comcast.com</SitecoreWebUrl>
+		<SitecoreDeployFolder>\\ebzcms-dt-1d1\d$\ebiz\websites\cms.comcast.com</SitecoreDeployFolder> -->
+    
+		<!--<InstallSitecoreConnector>True</InstallSitecoreConnector>
+		<DisableFileDeployment>False</DisableFileDeployment>
+		<SitecoreAccessGuid>75c3653c-b137-482f-95d2-1fa384aa3b63</SitecoreAccessGuid>-->
+    <!-- NuGet package properties -->
+    <!--
+		<NuGetGenerateNuGetPackage></NuGetGenerateNuGetPackage>
+		<NuGetSummary></NuGetSummary>
+		<NuGetDescription></NuGetDescription>
+		<NuGetTitle></NuGetTitle>
+		<NuGetVersion></NuGetVersion>
+		<NuGetPackageId></NuGetPackageId>
+		<NuGetAuthors></NuGetAuthors>
+		<NuGetProjectUrl></NuGetProjectUrl>
+		<NuGetTags></NuGetTags>
+		<NuGetRequireLicenseAcceptance></NuGetRequireLicenseAcceptance>
+		<NuGetReleaseNotes></NuGetReleaseNotes>
+		<NuGetLanguage></NuGetLanguage>
+		<NuGetOwners></NuGetOwners>
+		<NuGetCopyright></NuGetCopyright>
+		<NuGetLicenseUrl></NuGetLicenseUrl>
+		<NuGetIconUrl></NuGetIconUrl>
+		<NuGetDependencies></NuGetDependencies>
+		-->
+    <!-- Validation Properties -->
+    <!--
+		<EnableValidations></EnableValidations>
+		<ValidationSettingsFilePath></ValidationSettingsFilePath>
+		-->
+  </PropertyGroup>
+</Project>

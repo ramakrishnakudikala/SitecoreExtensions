@@ -4,9 +4,9 @@ using Newtonsoft.Json.Linq;
 using Sitecore.Security.Accounts;
 using HedgehogDevelopment.SitecoreProject.PackageInstallPostProcessor.Contracts;
 
-namespace TDS.PostBuild
+namespace TDS.PostDeploy
 {
-    public class RolesPostBuildStep : IPostDeployAction
+    public class RolesPostDeployStep : IPostDeployAction
     {
         public void RunPostDeployAction(XDocument deployedItems, IPostDeployActionHost host, string parameter)
         {
