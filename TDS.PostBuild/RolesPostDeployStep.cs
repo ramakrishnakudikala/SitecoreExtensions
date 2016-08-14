@@ -28,7 +28,10 @@ namespace TDS.PostDeploy
                         if (Sitecore.Security.Accounts.Role.Exists(installedRoleName))
                         {
                             var installedRole = Role.FromName(installedRoleName);
-                            var targetRoleMember = Role.FromName((string)roleMappingsJson[installedRoleName]);
+                            var targetRoleName = (string)roleMappingsJson[installedRoleName];
+                            if (string.IsNullOrEmpty(targetRoleName))
+                                continue;
+                            var targetRoleMember = Role.FromName(targetRoleName);
                             RolesInRolesManager.AddRoleToRole(installedRole, targetRoleMember);
                             host.LogMessage("Added the role {0} as a member of the role {1}", installedRole.Name, targetRoleMember.Name);
                         }

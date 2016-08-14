@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RolesPostBuildStep.cs" />
+    <Compile Include="RolesPostDeployStep.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
