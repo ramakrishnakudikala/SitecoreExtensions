@@ -49,6 +49,16 @@
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>.\bin\Release\</OutputPath>
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <PackageName>TDS.Roles</PackageName>
+    <PackageAuthor />
+    <PackagePublisher />
+    <PackageVersion />
+    <PackageReadme />
+    <SitecoreAssemblyPath />
+    <GeneratePackage>True</GeneratePackage>
+    <SeperateFilesAndItems>False</SeperateFilesAndItems>
+    <PackageExcludeCode>True</PackageExcludeCode>
+    <AddDateTimeToPackageName>True</AddDateTimeToPackageName>
   </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">

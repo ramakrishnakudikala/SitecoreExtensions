@@ -1,0 +1,12 @@
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\TDS.PostDeploy.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\TDS.PostDeploy.pdb
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\HedgehogDevelopment.SitecoreProject.PackageInstallPostProcessor.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\Newtonsoft.Json.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\Sitecore.Kernel.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\Sitecore.Logging.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\Sitecore.Update.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\Sitecore.Zip.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\Newtonsoft.Json.xml
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\bin\Release\Sitecore.Kernel.xml
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\obj\Release\TDS.PostDeploy.dll
+C:\Users\rkudik001c\Desktop\GitHub\SitecoreExtensions\SitecoreExtensions\TDS.PostBuild\obj\Release\TDS.PostDeploy.pdb

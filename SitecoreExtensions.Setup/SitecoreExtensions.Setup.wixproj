@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>2375dadf-57b0-450e-a83e-07dd223e08f3</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>SitecoreExtensions.Setup</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSProjectReader.exe" />
+    <Content Include="CSProjectReader.exe.config" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TDS.PostBuild\TDS.PostDeploy.csproj">
+      <Name>TDS.PostDeploy</Name>
+      <Project>{cbfe10a5-25b1-4cb0-a262-8e0c887f1118}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+  <Target Name="BeforeBuild">
+    <RemoveDir Directories="$(ProjectDir)ToHarvestAssemblies" />
+    <MakeDir Directories="$(ProjectDir)ToHarvestAssemblies" />
+    <Exec Command="$(ProjectDir)CSProjectReader.exe &quot;$(ProjectPath)&quot; &quot;$(ProjectDir)ToHarvestAssemblies&quot;" />
+    <HeatDirectory NoLogo="$(HarvestProjectsNoLogo)" SuppressAllWarnings="$(HarvestProjectsSuppressAllWarnings)" SuppressSpecificWarnings="$(HarvestProjectsSuppressSpecificWarnings)" ToolPath="$(WixToolPath)" TreatWarningsAsErrors="$(HarvestProjectsTreatWarningsAsErrors)" TreatSpecificWarningsAsErrors="$(HarvestProjectsTreatSpecificWarningsAsErrors)" VerboseOutput="$(HarvestProjectsVerboseOutput)" AutogenerateGuids="false" GenerateGuidsNow="true" ComponentGroupName="Dependencies" OutputFile="$(IntermediateOutputPath)_Dependencies.wxs" SuppressFragments="false" SuppressUniqueIds="false" Directory="$(ProjectDir)ToHarvestAssemblies" DirectoryRefId="bin" AdditionalOptions="-gg -g1 -sreg -srd -var wix.PackageSource=&quot;.\ToHarvestAssemblies&quot;">
+      <Output TaskParameter="OutputFile" ItemName="Compile" />
+    </HeatDirectory>
+    <HeatProject NoLogo="$(HarvestProjectsNoLogo)" SuppressAllWarnings="$(HarvestProjectsSuppressAllWarnings)" SuppressSpecificWarnings="$(HarvestProjectsSuppressSpecificWarnings)" ToolPath="$(WixToolPath)" TreatWarningsAsErrors="$(HarvestProjectsTreatWarningsAsErrors)" TreatSpecificWarningsAsErrors="$(HarvestProjectsTreatSpecificWarningsAsErrors)" VerboseOutput="$(HarvestProjectsVerboseOutput)" AutogenerateGuids="false" GenerateGuidsNow="true" OutputFile="$(IntermediateOutputPath)_%(Name).Binaries.wxs" SuppressFragments="false" SuppressUniqueIds="false" Project="@(ProjectReference)" DirectoryIds="bin" ProjectOutputGroups="Binaries" AdditionalOptions="-gg -sf -srd">
+      <Output TaskParameter="OutputFile" ItemName="Compile" />
+    </HeatProject>
+    <HeatProject NoLogo="$(HarvestProjectsNoLogo)" SuppressAllWarnings="$(HarvestProjectsSuppressAllWarnings)" SuppressSpecificWarnings="$(HarvestProjectsSuppressSpecificWarnings)" ToolPath="$(WixToolPath)" TreatWarningsAsErrors="$(HarvestProjectsTreatWarningsAsErrors)" TreatSpecificWarningsAsErrors="$(HarvestProjectsTreatSpecificWarningsAsErrors)" VerboseOutput="$(HarvestProjectsVerboseOutput)" AutogenerateGuids="false" GenerateGuidsNow="true" OutputFile="$(IntermediateOutputPath)_%(Name).Content.wxs" SuppressFragments="false" SuppressUniqueIds="false" Project="@(ProjectReference)" DirectoryIds="%(RefTargetDir)" ProjectOutputGroups="Content" AdditionalOptions="-gg -sf -srd" Condition="'%(DoNotHarvest)' != 'True'">
+      <Output TaskParameter="OutputFile" ItemName="Compile" />
+    </HeatProject>
+    <Message Text="Complilable Files:&#xD;&#xA;" />
+    <Message Text="@(Compile)&#xD;&#xA;" />
+  </Target>
+</Project>

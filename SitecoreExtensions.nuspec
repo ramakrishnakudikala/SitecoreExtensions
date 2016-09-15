@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SitecoreExtensions.Deploy</id>
+    <version>1.0.0.0</version>
+    <title>Sitecore CMS  Extensions </title>
+    <authors>Rk</authors>
+    <owners>Comcast Cable</owners>
+    <iconUrl></iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Sitecore Extensions installer package.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="SitecoreExtensions.Setup\bin\Release\*.msi" target="tools"/>
+    <file src="TDS.Roles\bin\Package_Release\*.update" target="tools"/>
+  </files>
+</package>

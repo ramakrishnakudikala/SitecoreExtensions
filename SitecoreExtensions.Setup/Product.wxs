@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Product Id="{380C01C7-58FD-41C8-9B9E-A270534E9D95}" 
+           Name="SitecoreExtensions.Setup" 
+           Language="1033" Version="1.0.0.0" 
+           Manufacturer="Comcast Cable" 
+           UpgradeCode="2f02b992-cac8-438d-86fe-3be8b54053c9">
+    
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of SitecoreExtensions.Setup is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="SitecoreExtensions.Setup" Level="1">
+			<!--<ComponentGroupRef Id="ProductComponents" />-->
+      <ComponentGroupRef Id="TDS.PostDeploy.Binaries"/>
+      <ComponentRef Id="DataFolderPermissions"/>
+    </Feature>
+	</Product>
+
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="COMCAST" Name="ebiz">
+        <Directory Id="WEBSITES" Name="websites">
+          <Directory Id="INSTALLFOLDER" Name="sc.extensions.com">
+            <Component Id="DataFolderPermissions" Guid="3D23126C-51D3-456B-A776-73F86818F584">
+              <CreateFolder>
+                <util:PermissionEx User="NETWORK SERVICE" GenericAll="yes" />
+              </CreateFolder>
+            </Component>
+            <Directory Id="bin" Name="bin" />
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+  
+	<!--<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			--><!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. --><!--
+			--><!-- <Component Id="ProductComponent"> --><!--
+				--><!-- TODO: Insert files, registry keys, and other resources here. --><!--
+			--><!-- </Component> --><!--
+		</ComponentGroup>
+	</Fragment>-->
+</Wix>

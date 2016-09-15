@@ -4,3 +4,7 @@
 
 /TDS.PostBuild/obj/Debug
 /TDS.Roles/bin/Package_Debug
+/TDS.Roles/bin/Package_Release
+/SitecoreExtensions.Setup/bin/Debug
+/SitecoreExtensions.Setup/obj/Debug
+/SitecoreExtensions.Setup/ToHarvestAssemblies
